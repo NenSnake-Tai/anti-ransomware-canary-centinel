@@ -26,3 +26,32 @@ The suite is divided into two operational environments depending on your target 
 
 ---
 *Disclaimer: Developed for behavioral defense assessment and advanced threat analysis.*
+
+
+```mermaid
+graph TD
+    %% Estilo de nodos neón
+    classDef safe color:#00ff66,fill:#000,stroke:#00ff66,stroke-width:2px;
+    classDef alert color:#ff0033,fill:#000,stroke:#ff0033,stroke-width:2px;
+    classDef process color:#00ffff,fill:#000,stroke:#00ffff,stroke-width:1px;
+
+    Start([⚡ Arranque del Sistema]) --> Deploy[🚀 Despliegue de Carpeta Cebo .honeypot-trap]
+    Deploy --> Write[📝 Inyección de Firma Frecuencial canario.txt]
+    Write --> Listen[📡 Escucha Pasiva del Kernel a 120Hz fs.watch]
+    
+    Listen --> Check{👾 ¿Intento de Intrusión / Evento Detectado?}
+    
+    Check -- NO --> Listen
+    Check -- SÍ --> Verify[🔬 Auditoría Rápida de Bytes en RAM/Disco]
+    
+    Verify --> Logic{⚠️ ¿Firma alterada o archivo eliminado?}
+    
+    Logic -- NO --> Listen
+    
+    Logic -- SÍ --> Alert[🚨 ALERTA CRÍTICA DETECTADA]:::alert
+    Alert --> Freeze[🔒 INSTANT SYSTEM FREEZE process.exit]:::alert
+    Freeze --> End([🛑 Aislamiento de Disco a Cero Lag]):::alert
+
+    class Start,Deploy,Write,Listen safe;
+    class Check,Verify,Logic process;
+```
