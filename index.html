@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QFS Alpha - Anti-Ransomware Canary Centinel</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #00ff66;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 100%;
+            max-width: 700px;
+            background: #0a0a0a;
+            border: 2px solid #00ff66;
+            box-shadow: 0 0 20px rgba(0, 255, 102, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 1.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 0;
+            border-bottom: 1px solid #00ff66;
+            padding-bottom: 10px;
+        }
+        .console-screen {
+            background-color: #000;
+            border: 1px solid #005511;
+            height: 250px;
+            padding: 15px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            white-space: pre-wrap;
+        }
+        .btn-trigger {
+            display: block;
+            width: 100%;
+            background: transparent;
+            color: #00ff66;
+            border: 2px solid #00ff66;
+            padding: 12px;
+            font-size: 1rem;
+            font-weight: bold;
+            font-family: inherit;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        .btn-trigger:hover {
+            background: #00ff66;
+            color: #000;
+            box-shadow: 0 0 15px #00ff66;
+        }
+        .status-bar {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            color: #888;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>QFS Centinel v1.0 - Sandbox</h1>
+    <div id="terminal" class="console-screen">=== INICIANDO PROTOCOLO CANARIO DIGITAL (WEB SANDBOX) ===
+[+] Nodo cebo virtual desplegado con éxito en el buffer RAM.
+[+] Centinela activo en modo escucha pasiva a 120Hz... sin lag.
+[!] Estado del sistema: ESPERANDO VECTOR DE ATAQUE...</div>
+    <button class="btn-trigger" onclick="ejecutarAtaqueSimulado()">Simular Ataque Ransomware</button>
+    <div class="status-bar">Hardware Status: Enraizado en Tenerife | 120Hz Refresh Rate</div>
+</div>
+
+<script>
+    const term = document.getElementById('terminal');
+    const contenidoOriginal = "FIRMA FRECUENCIAL CRÍTICA";
+    let archivoVirtual = "FIRMA FRECUENCIAL CRÍTICA";
+
+    // Monitorización constante en bucle de memoria
+    setInterval(() => {
+        if (archivoVirtual !== contenidoOriginal) {
+            mitigarAmenazaInmediata();
+        }
+    }, 100);
+
+    function ejecutarAtaqueSimulado() {
+        term.innerHTML += `\n\n[👾] INFECCIÓN DETECTADA: Virus intentando alterar la firma criptográfica...`;
+        term.scrollTop = term.scrollHeight;
+        
+        // Mutación de datos que dispara el cortafuegos
+        setTimeout(() => {
+            archivoVirtual = "SISTEMA ENCRIPTADO - PAGA RESCATE";
+        }, 600);
+    }
+
+    function mitigarAmenazaInmediata() {
+        term.innerHTML += `\n\n[🚨] ALERTA CRÍTICA: Intento de alteración física detectado.`;
+        term.innerHTML += `\n=============================================================`;
+        term.innerHTML += `\n[🛑] NÚCLEO QFS DETECTÓ CORRUPCIÓN: MODIFICACIÓN DE NODO`;
+        term.innerHTML += `\n[🔒] EJECUTANDO COMANDO: INSTANT VIRTUAL FREEZE / AISLAMIENTO DE NODO`;
+        term.innerHTML += `\n[🔒] TERMINAL BLOQUEADA CON ÉXITO A CERO LAG - SISTEMA COMPROMETIDO SALVADO`;
+        term.innerHTML += `\n=============================================================`;
+        term.scrollTop = term.scrollHeight;
+        
+        // Deshabilitar botón tras la congelación del proceso
+        document.querySelector('.btn-trigger').disabled = true;
+        document.querySelector('.btn-trigger').innerText = "SISTEMA CONGELADO / PRIVILEGIOS ROOT ACTIVOS";
+        document.querySelector('.btn-trigger').style.borderColor = "#ff0033";
+        document.querySelector('.btn-trigger').style.color = "#ff0033";
+        term.style.borderColor = "#ff0033";
+        term.style.color = "#ff0033";
+    }
+</script>
+
+</body>
+</html>
